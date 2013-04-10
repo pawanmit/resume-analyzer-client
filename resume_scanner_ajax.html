@@ -1,0 +1,141 @@
+<html>
+<head>
+</head>
+
+<body>
+<form name="form" method="POST" enctype="multipart/form-data">
+
+<div class="fileupload">
+	<label>Upload resume:</label>
+	<input class="uploadfile" type="file" size="45" name="fileToUpload">
+
+	<BR>
+	<label>Upload resume:</label>
+	<input class="uploadfile" type="file" size="45" name="fileToUpload">
+
+	<BR>
+	<label>Upload resume:</label>
+	<input class="uploadfile" type="file" size="45" name="fileToUpload">
+
+	<BR>
+	<label>Upload resume:</label>
+	<input class="uploadfile" type="file" size="45" name="fileToUpload">
+
+	<BR>
+	<label>Upload resume:</label>
+	<input class="uploadfile" type="file" size="45" name="fileToUpload">
+</div>
+
+<div class="inputKeywords">
+	<label> Enter keywords: </label>
+	<ul id="keywordList">
+		<li class="keyword"> <input type="text"> </li>	
+	</ul>
+	<input type="button" value="Add keyword" id="addKeywordButton">
+</div>
+</form>
+
+<div id="keywordCountMap"></div>
+
+<div id="errors"></div>
+
+<div id="footer">
+<script type="text/javascript" src="http://stag.wired.com/js/cn-fe-common/jquery-1.7.2.min.js?ver=1.7.2"></script>
+
+<script type="text/javascript">
+
+	//Ajax function to pass file content to server for processing and display output
+	function ajaxFileUpload(e) {
+		e.preventDefault();
+		
+		//Get keywords
+		var keywords = getKeywords();
+		if (keywords.length < 1) {
+			alert("Please enter atleast 1 keyword");
+			return false;
+		}
+		
+		//Get file
+		var files = e.target.files || e.dataTransfer.file;
+		var file = files[0];
+		console.log(file.name);
+		console.log(file.size);
+		console.log(file.type);
+		
+		//Start upload
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("POST", "upload.php", true);
+		xmlhttp.setRequestHeader("X_FILENAME", file.name);
+		xmlhttp.setRequestHeader("X_KEYWORDS", keywords);
+		xmlhttp.send(file);
+		
+		//process AJAX response
+		xmlhttp.onreadystatechange=function() {
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+  				var data = xmlhttp.responseText;
+  				//alert(data);
+             	var obj = JSON.parse(data);
+             	console.log(obj);
+             	
+             	if (obj.output.error.length < 1) {
+            		var keywordCountMap =  obj.output.keywordCountMap;
+            		displayKeywordMap(keywordCountMap);
+            	} else {
+            		jQuery('#errors').append("<li class='error'>" + obj.output.error + "</li>");
+            	}
+    		}//if xmlhttp.readyState==4...
+  		}//function
+	}
+	
+	
+	
+	//Parses the keywordCountMap for keyword and counts and generates html
+	function displayKeywordMap(keywordCountMap) {
+    	//Loop through keywords
+		for (keyword in keywordCountMap) {
+    		if (!keywordCountMap.hasOwnProperty(keyword)) {
+        		//The current property is not a direct property of p
+        			continue;
+    		}
+    		//document.getElementById("keywords").innerHTML=xmlhttp.responseText;
+    		jQuery("#keywordCountMap").append("<li class='keywordCount'> <span class='keyword'>" + keyword + "</span><span class='count'>" +  keywordCountMap[keyword] + "</span></li>");
+		}//for 	
+	}
+	
+	//Binds file upload elements to ajaxFileUpload
+ 	 jQuery(".uploadfile").bind("change", function(e){
+        ajaxFileUpload(e);
+	  });
+	  
+	  
+	  
+	function onprogressHandler(evt) {
+     	var percent = evt.loaded/evt.total*100;
+     	console.log('Upload progress: ' + percent + '%');
+ 	}
+ 	
+ 	//Return the keywords as comma seprated string
+ 	function getKeywords() {
+ 		var keywords = "";
+ 		var inputKeywords = jQuery("#keywordList li");
+ 		
+ 		//console.log(inputKeywords);
+		inputKeywords.each(function(idx, li) {
+			var keyword = jQuery(li).find("input[type=text]").val().trim();
+			if( keyword.length > 0 ) {
+				keywords += keyword.trim() + ",";
+			}
+		});
+		return keywords.substring(0, keywords.length-1);
+ 	}
+ 	
+	
+	jQuery("#addKeywordButton").bind("click", function() {
+		//alert("good job");
+		jQuery("#keywordList").append("<li class='keyword'> <input type='text'>");
+	});	
+	
+</script>
+</div>
+</body>
+</html>

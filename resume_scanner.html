@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="fileupload">
+<form id="resumeuploadform" action="upload.php" method="post" enctype="multipart/form-data">
+  Upload resumes to scan:<br />
+  <!-- <input type="hidden" name="MAX_FILE_SIZE" value="500000" /> -->
+  <input name="userfile[]" type="file" /><br />
+  <input name="userfile[]" type="file" /><br />
+  <input name="userfile[]" type="file" /><br />
+  <input name="userfile[]" type="file" /><br />
+  <input name="userfile[]" type="file" /><br />  
+
+<div class="inputKeywords">
+	<label> Enter keywords: </label>
+	<ul id="keywordList">
+		<li class="keyword"> <input type="text" name="keyword1"> </li>
+	</ul>
+	<input type="button" value="Add keyword" id="addKeywordButton">
+</div>
+
+<input type="submit" value="Send files" />
+  
+</form>
+</div>
+
+<div id="error"></div>
+
+<div id="keywordCountMap" />
+
+<div id="footer">
+<script type="text/javascript" src="http://stag.wired.com/js/cn-fe-common/jquery-1.7.2.min.js?ver=1.7.2"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="http://localhost/resumeparser/includes/js/resumeparser.js"></script>
+
+</div>
+</body>
+</html>
