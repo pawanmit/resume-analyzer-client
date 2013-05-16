@@ -131,7 +131,7 @@ function fixFilesArray(&$files) {
 /**
 * Creates ahtml table from $scanned_resume_array
 * @param $scanned_resume_array
-* return $keyword_count_table an html table
+* @return $keyword_count_table an html table
 */
 
 function createKeywordCountDisplayTable($scanned_resume_array) {
@@ -171,6 +171,24 @@ function createKeywordCountDisplayTable($scanned_resume_array) {
 		$keyword_count_table .= '</tr>';
 	}//foreach
 	return $keyword_count_table;
+}
+
+
+/**
+* Loads a .ini file depending on host name and returns the value for a property. 
+* If file is not loaded or property_name does not exisis then null is returned.
+* @param property_name Name of property to load.
+* @return property_value value for property_name
+*/
+function getPropertyValue($property_name) {
+	$properties = array();
+	if ( strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ) {
+		$properties = parse_ini_file("./deployment/development.ini");
+	} else {
+		$properties = parse_ini_file("./deployment/production.ini");
+	}
+	
+	return $properties[$property_name];
 }
 
 

@@ -24,7 +24,9 @@ if ( strlen( trim ( str_replace(',', '', $keyword_string) ) ) < 1 ) {
 	return -1;
 }
 
-$resume_app_url = 'http://localhost:8080/parserclient/resume/scan/keywords';
+//error_log( "KEYWORD_FINDER_URL:" . getPropertyValue("KEYWORD_FINDER_URL") );
+
+$keyword_finder_url = getPropertyValue("KEYWORD_FINDER_URL");
 
 $tmp_file_array = array();
 
@@ -36,7 +38,7 @@ foreach($files['userfile'] as $file) {
 	$tmp_file = $file['tmp_name'];
 	logObject($file);
 	$upload_file_name = $file['name'];
-	$target_url = $resume_app_url.'?filepath='.$tmp_file . '&keywords='.$keyword_string;
+	$target_url = $keyword_finder_url.'?filepath='.$tmp_file . '&keywords='.$keyword_string;
 	$response_json = makeCurlCall($target_url);
 	//error_log($response_json);
 	$result_object = json_decode(stripslashes($response_json), true);
