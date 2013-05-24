@@ -54,7 +54,7 @@ function fixFilesArray(&$files) {
 	function getKeywordsAsString() {
 		$keyword_string = '';
 		foreach($_POST as $key=>$value) {
-			if ( strpos($key, 'keyword') === 0 ) {
+			if ( strpos($key, 'keyword-') === 0 ) {
 			$keyword_string .= $value . ',';
 			//error_log('Key:' . $key . ' Value:' . $value . ' String position:' . strpos($key, 'keyword') );
 			}

@@ -24,24 +24,28 @@
 		return keywords;
  	}
  	
+
 	//Adds an input text field for keywords
 	jQuery("#addKeywordButton").bind("click", function() {
+	
+		var currentKeywordsCount = jQuery("#keywordList > li").length;
+		
+		if (currentKeywordsCount >= 5) {
+			alert("Only 5 keywords allowed");
+			return;
+		}
+		
 		var lastKeywordName= jQuery("#keywordList li").last().find("input").attr("name");
-		newKeywordCount = parseInt( lastKeywordName.substring(lastKeywordName.length - 1) ) + 1;
-		var newKeywordName = "keyword" +  newKeywordCount;
+		newKeywordCount = parseInt( lastKeywordName.split("-")[1] )  + 1 ;
+		var newKeywordName = "keyword-" +  newKeywordCount;
 		//alert(newKeywordName);
-		jQuery("#keywordList").append("<li class='keyword'> <input type='text' name='" + newKeywordName + "'>");
-	});	
+		jQuery("#keywordList").append("<li class='keyword' id='"+newKeywordName+"'> <input type='text' name='" + newKeywordName + "'><input type='button' value='Remove' class='removeKeywordButton' id='removeKeywordButton-"+newKeywordCount+"'>");
+	});
 
-	//Parses the keywordCountMap for keyword and counts and generates html
-	function displayKeywordMap(keywordCountMap) {
-    	//Loop through keywords
-		for (keyword in keywordCountMap) {
-    		if (!keywordCountMap.hasOwnProperty(keyword)) {
-        		//The current property is not a direct property of p
-        			continue;
-    		}
-    		//document.getElementById("keywords").innerHTML=xmlhttp.responseText;
-    		jQuery("#keywordCountMap").append("<li class='keywordCount'> <span class='keyword'>" + keyword + "</span><span class='count'>" +  keywordCountMap[keyword] + "</span></li>");
-		}//for 	
-	}
+	$('body').on('click', '.removeKeywordButton', function() {
+		var removeKeywordButtonId = this.id;
+		var keywordCount = parseInt( removeKeywordButtonId.split("-")[1] );
+		var listId = "keyword-" + keywordCount;
+		jQuery("#"+listId).remove();
+    	//alert( keywordCount );
+	});
