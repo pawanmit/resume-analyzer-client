@@ -136,7 +136,7 @@ function fixFilesArray(&$files) {
 
 function createKeywordCountDisplayTable($scanned_resume_array) {
 	
-	$keyword_count_table = '<table border="1">';
+	$keyword_count_table = '<table width="100%" border="0" cellspacing="1" cellpadding="1">';
 	//http://www.noupe.com/how-tos/better-ui-design-proper-use-of-tables.html
 	
 	$count = 1;
@@ -166,7 +166,7 @@ function createKeywordCountDisplayTable($scanned_resume_array) {
 		$keyword_count_table .=  '<td>' . $upload_file_name . '</td>';
 		
 		foreach($keywords as $keyword) {
-			$keyword_count_table .=  '<td>' . $keyword_count_map[$keyword]. '</td>';
+			$keyword_count_table .=  '<td class="keyword_count">' . $keyword_count_map[$keyword]. '</td>';
 		}
 		$keyword_count_table .= '</tr>';
 	}//foreach

@@ -4,8 +4,17 @@
             $('#resumeuploadform').ajaxForm(function(data) {
             	var obj = JSON.parse(data);
             	console.log(obj);
-                $('#keywordCountMap').html(obj.output.keywordCountMap);
-                $('#error').html(obj.output.error);
+            	if (obj.output.keywordCountMap.length > 0) {
+               		$('#keywordCountMap').addClass("ty_success").html(obj.output.keywordCountMap);
+               	} else {
+               		$('#keywordCountMap').removeClass("ty_success").html("");
+               	}
+               	
+                if (obj.output.error.length > 0) {
+                	$('#error').addClass("ty_error").html(obj.output.error);
+                } else {
+					$('#error').removeClass("ty_error").html("");                
+                }
             });
         });
 	
@@ -39,10 +48,10 @@
 		newKeywordCount = parseInt( lastKeywordName.split("-")[1] )  + 1 ;
 		var newKeywordName = "keyword-" +  newKeywordCount;
 		//alert(newKeywordName);
-		jQuery("#keywordList").append("<li class='keyword' id='"+newKeywordName+"'> <input type='text' name='" + newKeywordName + "'><input type='button' value='Remove' class='removeKeywordButton' id='removeKeywordButton-"+newKeywordCount+"'>");
+		jQuery("#keywordList").append("<li class='keyword' id='"+newKeywordName+"'> <input type='text' name='" + newKeywordName + "' class='text_box required'><input type='button' value='Remove'  id='removeKeywordButton-"+newKeywordCount+"' class='remove_keyword_button'>");
 	});
 
-	$('body').on('click', '.removeKeywordButton', function() {
+	$('body').on('click', '.remove_keyword_button', function() {
 		var removeKeywordButtonId = this.id;
 		var keywordCount = parseInt( removeKeywordButtonId.split("-")[1] );
 		var listId = "keyword-" + keywordCount;

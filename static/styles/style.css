@@ -166,8 +166,11 @@ hr{ margin-top:10px; margin-bottom:10px; height:1px; border:none; border-top:sol
 .form_structure li .text_area:focus{ border-top:solid 1px #aeaeae; border-right:solid 1px #bcbcbc; border-bottom:solid 1px #d3d3d3; border-left:solid 1px #bcbcbc;}
 .form_structure li .text_area.error{ border:solid 1px #FF6161; background:#FFF2F2 url(../images/form_fields_bg_error.gif) 0 0 repeat-x;}
 
-.form_structure li .btn_submit1{ background:url(../images/btn_continue1.gif) 0 0; color:#4c0000; width:86px; height:23px; line-height:23px; position:relative; padding:0 22px 0 8px; font-weight:bold; text-shadow:0 1px 0 #fff69c; border:none;}
-.form_structure li .btn_submit1:hover, .form_structure li .btn_continue.hover{background:url(../images/btn_continue1.gif) 0 100%;}
+.form_structure li .add_keyword_button{ background:url(../images/btn_continue1.gif) 0 0; color:#4c0000; width:86px; height:23px; line-height:23px; position:relative; padding:0 22px 0 8px; font-weight:bold; text-shadow:0 1px 0 #fff69c; border:none;}
+.form_structure li .add_keyword_button:hover, .form_structure li .btn_continue.hover{background:url(../images/btn_continue1.gif) 0 100%;}
+
+.form_structure li .remove_keyword_button{ background:url(../images/btn_continue1.gif) 0 0; color:#4c0000; width:86px; height:23px; line-height:23px; position:relative; padding:0 22px 0 8px; font-weight:bold; text-shadow:0 1px 0 #fff69c; border:none;}
+.form_structure li .remove_keyword_button:hover, .form_structure li .btn_continue.hover{background:url(../images/btn_continue1.gif) 0 100%;}
 
 .form_structure li .btn_submit{ background:url(../images/btn_submit.png) 0 0; color:#4c0000; width:84px; height:36px; line-height:23px; position:relative; padding:0 22px 0 8px; font-weight:bold; text-shadow:0 1px 0 #fff69c; border:none;}
 .form_structure li .btn_submit:hover, .form_structure li .btn_submit.hover{background:url(../images/btn_submit.png) 0 100%;}
@@ -197,5 +200,5 @@ hr{ margin-top:10px; margin-bottom:10px; height:1px; border:none; border-top:sol
 
 .ty_error{ color:#d50000; background:#ffe0e0 url(../images/msg_cross.png) 10px center no-repeat; font-size:13px; width:150px; border:solid 1px #ff0000;  padding:8px 8px 8px 40px;}
 .ty_success{ color:#1f7800; background:#e2fae0 url() 10px center no-repeat; font-size:13px; color:#000; width:400px; border:solid 1px #34c700; margin:10px 0 30px 0; padding:8px 8px 8px 5px;}
-
+.keyword_count {}
 
