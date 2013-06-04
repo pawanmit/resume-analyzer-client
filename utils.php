@@ -72,7 +72,8 @@ function fixFilesArray(&$files) {
     */
     function makeCurlCall($target_url) {
         # Initial curl
-        //error_log("Making curl call for " . $target_url);
+        $ip = $_SERVER['REMOTE_ADDR'];
+        error_log("IP Address:" . $ip . " CURL URL:" . $target_url );
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL,$target_url);
