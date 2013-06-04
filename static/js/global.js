@@ -2,18 +2,16 @@
 //http://stackoverflow.com/questions/11046684/php-file-upload-using-jquery-post
         $(document).ready(function(event) {
             $('#resumeuploadform').ajaxForm(function(data) {
+            	$('#keywordCountMap').removeClass("ty_success").html("");
+            	$('#error').removeClass("ty_error").html(""); 
             	var obj = JSON.parse(data);
             	console.log(obj);
             	if (obj.output.keywordCountMap.length > 0) {
                		$('#keywordCountMap').addClass("ty_success").html(obj.output.keywordCountMap);
-               	} else {
-               		$('#keywordCountMap').removeClass("ty_success").html("");
                	}
                	
                 if (obj.output.error.length > 0) {
                 	$('#error').addClass("ty_error").html(obj.output.error);
-                } else {
-					$('#error').removeClass("ty_error").html("");                
                 }
             });
         });
