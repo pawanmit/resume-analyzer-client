@@ -21,9 +21,9 @@
 				jQuery.post('contact_submission.php', jQuery("#contactform").serialize(), function(data) {
 					jQuery('body').append(data);
                     if (success == 1) {
-                        jQuery('#message').html('Thank you for contacting us. We will be in touch with you very soon.');
                         //Clear form values
-                        jQuery('#contactform').children('input[type=text]').val('');
+						$('form :input').val('').html('');
+                    	jQuery('#message').html('Thank you for contacting us. We will be in touch with you very soon.');
                     } else if (success == -1) {
                         jQuery('#message').html("There was a problem submitting your entry. Please check for any special characters like ' and & and try again");
                     }
