@@ -8,6 +8,7 @@
             	console.log(obj);
             	if (obj.output.keywordCountMap.length > 0) {
                		$('#keywordCountMap').addClass("ty_success").html(obj.output.keywordCountMap);
+               		jQuery('html,body').animate({scrollTop: jQuery("#keywordCountMap").offset().top},'slow');
                	}
                	
                 if (obj.output.error.length > 0) {
