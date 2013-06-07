@@ -1,59 +1,83 @@
 <html>
 
-<head></head>
+<head>
+<link rel="stylesheet" type="text/css" href="static/styles/style.css" />
+<link rel="shortcut icon" href="static/images/favicon.ico" />
+</head>
 
 
 <body>
 
-<form name="contactform" method="post" action="send_form_email.php">
-<table width="450px">
-<tr>
- <td valign="top">
-  <label for="first_name">First Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="first_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top"">
-  <label for="last_name">Last Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="last_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="email">Email Address *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="email" maxlength="80" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="telephone">Telephone Number</label>
- </td>
- <td valign="top">
-  <input  type="text" name="telephone" maxlength="30" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="comments">Comments *</label>
- </td>
- <td valign="top">
-  <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
- </td>
-</tr>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
- </td>
-</tr>
-</table>
+<div id="header">
+  <div class="column"> <a href="#" class="main_logo"></a> 
+    <ul class="main_menu">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div id="grey_pan" class="gp_padding_bottom">
+	<div class="column"> 
+      <div class="text_content"> 
+        <h1>Please contact me for suggestions:</h1>
+      </div>
+    </div>
+</div>
+
+<form id="contactform" method="post" action="">
+<div id="content">
+	<div class="column">
+           <ul class="form_structure">
+  				<li><label class="fs_label">Name *</label> <input id="user_name" type="text" name="user_name" maxlength="50" size="30" class="text_box required"></li>
+  				<li><label class="fs_label">Email Address *</label> <input id="user_email" type="text" name="user_email" maxlength="50" size="30" class="text_box required"></li>
+  				<li><label class="fs_label">Comments *</label> <input  id="user_comments" type="text" name="user_comments" maxlength="50" size="30" class="text_box required"></li>
+
+				<li id="message"> </li>
+				<li><button type="submit" id="register_btn" name="register_btn" value="yes" class="btn_submit" /></li>
+
+           </ul>
+    </div>
+</div>
+
 </form>
+
+<div class="clear" />
+
+<div id="footer">
+	<div class="column">
+    	
+    <div class="column_two_third"> 
+      <div class="f_widget"> 
+        <h3>Designed for Delta Software</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <p>Cras malesuada, lectus sed dictum imperdiet, at elit. Cum sociis natoque 
+          penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+        <h3>+XX (0)1978 XXXXXX</h3>
+      </div>
+    </div>
+    	
+    	
+    <div class="column_one_third"> 
+      <div class="f_widget"> 
+        <h4>Connect with us</h4>
+        <div class="sm_icons"> <a href="#" target="_blank" class="facebook" title="Facebook"></a> 
+          <a href="#" target="_blank" class="twitter" title="Twitter"></a> <a href="#" target="_blank" class="linked_in" title="Linkedin"></a>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+	<script type="text/javascript" src="static/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery.validate.min.js"></script>	
+	<script type="text/javascript" src="static/js/contact_submission.js"></script>
+
+</div>
 
 </body>
 
