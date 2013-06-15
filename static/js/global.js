@@ -3,7 +3,10 @@
         $(document).ready(function(event) {
             $('#resumeuploadform').ajaxForm(function(data) {
             	$('#keywordCountMap').removeClass("ty_success").html("");
-            	$('#error').removeClass("ty_error").html(""); 
+            	$('#error').removeClass("ty_error").html("");
+            	//Hide submit button and show progress bar (doesn't work here. calling this when submit button is clicked)
+            	//jQuery('#register_btn').hide();
+            	//jQuery('#progressbar').show();
             	var obj = JSON.parse(data);
             	console.log(obj);
             	if (obj.output.keywordCountMap.length > 0) {
@@ -14,6 +17,9 @@
                 if (obj.output.error.length > 0) {
                 	$('#error').addClass("ty_error").html(obj.output.error);
                 }
+                //Hide progress bar and show submit button
+            	jQuery('#register_btn').show();
+            	jQuery('#progressbar').hide();                
             });
         });
 	
@@ -56,4 +62,9 @@
 		var listId = "keyword-" + keywordCount;
 		jQuery("#"+listId).remove();
     	//alert( keywordCount );
+	});
+	
+	jQuery('#register_btn').bind("click", function() {
+        jQuery('#register_btn').hide();
+        jQuery('#progressbar').show();	
 	});
