@@ -22,14 +22,24 @@ if ( strlen( trim ( str_replace(',', '', $keyword_string) ) ) < 1 ) {
 	return -1;
 }
 
+$file_size_error = '';
+foreach($files['userfile'] as $file)  {	
+	if ( $file['size'] > 1048576 ) {
+	 $file_size_error .= $file['name'] . ' is more than max allowed size of 1 MB <BR>';
+	}
+}
+
+if (strlen($file_size_error) > 0) {
+	$response_json = createResponseJson('', $file_size_error);
+	echo $response_json;
+	return -1;
+}
 
 $keyword_finder_url = getPropertyValue("KEYWORD_FINDER_URL");
 
 $tmp_file_array = array();
 
 $scanned_resume_array = array();
-
-$allowed = array('application/msword', 'application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
  
 foreach($files['userfile'] as $file) {
 	$tmp_file = $file['tmp_name'];
