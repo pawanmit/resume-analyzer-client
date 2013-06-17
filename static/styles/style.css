@@ -21,6 +21,9 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-weight: normal;
 }
+
+
+
 ul {
 	list-style-type: none;
 }
@@ -57,6 +60,7 @@ body {
 .column{ width:1000px; margin:0 auto;}
 .column .column_one_third{ position:relative; float:left; width:300px; padding:0 0 0 56px;}
 .column .column_two_third{ position:relative; float:left; width:630px; padding:0 0 0 0;}
+.column h1{ font-family:delicious_heavy, Arial, Helvetica, sans-serif; font-weight:normal; font-size:35px; padding-top:12px; padding-bottom:8px; padding-left:20px; color:#fff;}
 
 
 hr{ margin-top:10px; margin-bottom:10px; height:1px; border:none; border-top:solid 1px #CECECE; border-bottom:solid 1px #FFF;}
@@ -78,9 +82,9 @@ hr{ margin-top:10px; margin-bottom:10px; height:1px; border:none; border-top:sol
 /*--------Header--------*/
 
 #header{ background:#2b2b2b url(../images/bg_menu_pan.gif) 0 100% repeat-x;  padding:3px 0; border-bottom:solid 1px #434343; }
-#header .main_logo{ background:url(../images/logo.png); width:73px; height:73px; display:block; position:relative; float:left;}
+#header .main_logo{ background:url(../images/logo.png); width:73px; height:73px; display:block; position:relative; float:left; margin-left:20px;}
 
-.main_menu{ position:relative; float:right; padding-top:18px;}
+.main_menu{ position:relative; float:right; padding-top:0px;}
 .main_menu li{ position:relative; float:left; margin-left:8px;}
 .main_menu li a{ color:#ffcc00; padding:0 13px 2px; line-height:25px; display:block; margin-top:1px; -webkit-border-radius: 5px; border-radius: 5px; font-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight:bold;}
 .main_menu li a:hover{ background:#1b1b1b; border-top:solid 1px #000000; border-bottom:solid 1px #3a3a3a; margin-top:0;}
@@ -139,9 +143,10 @@ hr{ margin-top:10px; margin-bottom:10px; height:1px; border:none; border-top:sol
 /*--------Text Content--------*/
 .text_content{ display:block;}
 .text_content hr{ border:none; border-bottom:solid 1px #fcfcfc; border-top:solid 1px #dedede; margin:15px 0;}
-.text_content h1{ font-family:delicious_heavy, Arial, Helvetica, sans-serif; font-weight:bold; font-size:28px; line-height:28px; padding-bottom:8px; padding-left:19px; color:#2f2f2f;}
-.text_content h2{ font-family:delicious_heavy, Arial, Helvetica, sans-serif; font-weight:bold; font-size:24px; line-height:24px; padding-bottom:8px; color:#535353;}
-.text_content p{ font-family:Arial, Helvetica, sans-serif; padding-bottom:6px;}
+.text_content h1{ font-family:delicious_heavy, Arial, Helvetica, sans-serif; font-weight:bold; font-size:28px; line-height:0px; padding-bottom:8px; padding-left:19px; color:#2f2f2f;}
+.text_content h2{ font-family:delicious_heavy, Arial, Helvetica, sans-serif; font-weight:normal; font-size:24px; line-height:35px; padding-bottom:8px; padding-left:19px; color:#535353;}
+.text_content h3{ font-family:delicious_heavy, Arial, Helvetica, sans-serif; font-weight:bold; font-size:28px; line-height:24px; padding-bottom:8px; color:#2f2f2f;}
+.text_content p{ font-family:Arial, Helvetica, sans-serif; padding-bottom:8px;}
 
 
 
@@ -197,8 +202,8 @@ hr{ margin-top:10px; margin-bottom:10px; height:1px; border:none; border-top:sol
 .ty_message table td.t_dgrey{ padding:3px 5px; background:#cdcdcd; font-weight:bold;}
 
 
-
-.ty_error{ color:#d50000; background:#ffe0e0 url(../images/msg_cross.png) 10px center no-repeat; font-size:13px; width:150px; border:solid 1px #ff0000;  padding:8px 8px 8px 40px;}
+/*--------Style for Error Message--------*/
+.ty_error{ color:#d50000; background:#ffe0e0 url(../images/msg_cross.png) 10px center no-repeat; font-size:13px; width:350px; border:solid 1px #ff0000;  padding:8px 8px 8px 40px;}
 .ty_success{ color:#1f7800; background:#e2fae0 url() 10px center no-repeat; font-size:13px; color:#000; width:400px; border:solid 1px #34c700; margin:10px 0 30px 0; padding:8px 8px 8px 5px;}
 .keyword_count {}
 
