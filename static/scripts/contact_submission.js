@@ -23,9 +23,9 @@
                     if (success == 1) {
                         //Clear form values
 						$('form :input').val('').html('');
-                    	jQuery('#message').html('Thank you for contacting us. We will be in touch with you very soon.');
+                    	jQuery('#message').html('<h3>Thank you for contacting me. I will get back to you shortly.</h3>');
                     } else if (success == -1) {
-                        jQuery('#message').html("There was a problem submitting your entry. Please check for any special characters like ' and & and try again");
+                        jQuery('#message').html("<h3>There was a problem submitting your entry. Please check for any special characters like ' and & and try again</h3>");
                     }
 				});
 			}
